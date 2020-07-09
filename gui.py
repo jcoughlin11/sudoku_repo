@@ -46,9 +46,16 @@ class Game:
         --------
             None
         """
+        pygame.init()
         self.board = board
         self.solvedBoard = solvedBoard
         self.done = False
+        self.screenSize = [640, 480]
+        self.screen = pygame.display.set_mode(self.screenSize)
+        self.clock = pygame.time.Clock()
+        self.black = pygame.Color(0, 0, 0)
+        self.white = pygame.Color(255, 255, 255)
+        self.grey = pygame.Color(121, 121, 121)
 
     #-----
     # play
@@ -99,3 +106,25 @@ class Game:
         # Quitting event
         if event.type == pygame.QUIT:
             self.done = True
+
+    #-----
+    # display
+    #-----
+    def display(self):
+        """
+        Doc string.
+
+        Parameters:
+        -----------
+            pass
+
+        Raises:
+        -------
+            pass
+
+        Returns:
+        --------
+            pass
+        """
+        # Background
+        self.screen.fill(self.white)
